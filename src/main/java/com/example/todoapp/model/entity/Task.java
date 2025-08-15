@@ -4,13 +4,17 @@ import com.example.todoapp.enums.TaskPriority;
 import com.example.todoapp.enums.TaskStatus;
 import com.example.todoapp.model.entity.base.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tasks")
 public class Task extends BaseEntity {
     @Id
