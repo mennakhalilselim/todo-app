@@ -5,7 +5,7 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="1755083429685-1" author="menna">
-        <createTable tableName="tasks">
+        <createTable tableName="todos">
             <column name="id" type="UUID">
                 <constraints primaryKey="true"/>
             </column>
@@ -20,22 +20,22 @@
             <column name="priority" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="task_list_id" type="UUID"/>
+            <column name="todo_list_id" type="UUID"/>
             <column name="created_at" type="TIMESTAMP"/>
             <column name="updated_at" type="TIMESTAMP"/>
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableName="tasks"
-                baseColumnNames="task_list_id"
-                constraintName="fk_task_task_list"
-                referencedTableName="task_lists"
+                baseTableName="todos"
+                baseColumnNames="todo_list_id"
+                constraintName="fk_todo_todo_list"
+                referencedTableName="todo_lists"
                 referencedColumnNames="id"
                 onDelete="CASCADE"
         />
 
         <rollback>
-            <dropTable tableName="tasks"/>
+            <dropTable tableName="todos"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>

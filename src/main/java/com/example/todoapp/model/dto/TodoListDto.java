@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Builder
-public record TaskListDto(
+public record TodoListDto(
         UUID id,
         String title,
         String description,
         Integer count,
         Double progress,
-        List<TaskDto> tasks
+        List<TodoDto> todos
 ) {
 }

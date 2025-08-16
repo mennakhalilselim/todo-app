@@ -1,5 +1,5 @@
 package com.example.todoapp.enums;
 
-public enum TaskStatus {
+public enum TodoStatus {
     OPEN, CLOSED
 }

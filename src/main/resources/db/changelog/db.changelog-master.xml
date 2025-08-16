@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                 https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="db/changelog/changeset/00001_create_task_lists_table.xml" relativeToChangelogFile="false"/>
-    <include file="db/changelog/changeset/00002_create_tasks_table.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changeset/00001_create_todo_lists_table.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changeset/00002_create_todos_table.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

@@ -5,7 +5,7 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="1755083262494-1" author="menna">
-        <createTable tableName="task_lists">
+        <createTable tableName="todo_lists">
             <column name="id" type="UUID">
                 <constraints primaryKey="true"/>
             </column>
@@ -18,7 +18,7 @@
         </createTable>
 
         <rollback>
-            <dropTable tableName="task_lists"/>
+            <dropTable tableName="todo_lists"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>

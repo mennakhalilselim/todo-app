@@ -1,10 +1,12 @@
 package com.example.todoapp.model.entity;
 
+import com.example.todoapp.enums.TodoPriority;
+import com.example.todoapp.enums.TodoStatus;
 import com.example.todoapp.model.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -13,8 +15,8 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "task_lists")
-public class TaskList extends BaseEntity {
+@Table(name = "todos")
+public class Todo extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(updatable = false, nullable = false)
@@ -25,6 +27,15 @@ public class TaskList extends BaseEntity {
 
     private String description;
 
-    @OneToMany(mappedBy = "taskList", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
-    private List<Task> tasks;
+    private LocalDateTime dueDate;
+
+    @Column(nullable = false)
+    private TodoStatus status;
+
+    @Column(nullable = false)
+    private TodoPriority priority;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "todo_list_id")
+    private TodoList todoList;
 }
